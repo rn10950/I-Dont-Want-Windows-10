@@ -1,0 +1,17 @@
+REGEDIT
+; This .REG file may be used by your SETUP program.
+;   If a SETUP program is not available, the entries below will be
+;   registered in your InitInstance automatically with a call to
+;   CWinApp::RegisterShellFileTypes and COleObjectFactory::UpdateRegistryAll.
+
+
+HKEY_CLASSES_ROOT\IDontWantWindows10.Application = IDontWantWindows10 Application
+
+
+HKEY_CLASSES_ROOT\IDontWantWindows10.Application\CLSID = {0D95D5DE-11C8-4633-B8EE-11BFA190BAA3}
+
+HKEY_CLASSES_ROOT\CLSID\{0D95D5DE-11C8-4633-B8EE-11BFA190BAA3} = IDontWantWindows10 Application
+HKEY_CLASSES_ROOT\CLSID\{0D95D5DE-11C8-4633-B8EE-11BFA190BAA3}\ProgId = IDontWantWindows10.Application
+
+
+HKEY_CLASSES_ROOT\CLSID\{0D95D5DE-11C8-4633-B8EE-11BFA190BAA3}\LocalServer32 = I Don't Want Windows 10.EXE

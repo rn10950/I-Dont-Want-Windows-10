@@ -1,0 +1,29 @@
+// IDontWantWindows10.idl : type library source for I Don't Want Windows 10.exe
+
+// This file will be processed by the MIDL compiler to produce the
+// type library (IDontWantWindows10.tlb).
+
+[ uuid(FE361118-8EF9-4CC3-93FA-BAC71A7959B4), version(1.0) ]
+library IDontWantWindows10
+{
+	importlib("stdole32.tlb");
+	importlib("stdole2.tlb");
+
+	//  Primary dispatch interface for CIDontWantWindows10Doc
+	
+	[ uuid(E8206924-CA90-446B-975E-3046833CEFD2) ]
+	dispinterface IIDontWantWindows10
+	{
+		properties:
+			
+		methods:
+	};
+
+	//  Class information for CIDontWantWindows10Doc
+	
+	[ uuid(0D95D5DE-11C8-4633-B8EE-11BFA190BAA3) ]
+	coclass IDontWantWindows10
+	{
+		[default] dispinterface IIDontWantWindows10;
+	};
+};
