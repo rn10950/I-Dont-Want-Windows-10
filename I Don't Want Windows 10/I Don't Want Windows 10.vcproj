@@ -51,7 +51,7 @@
 				PreprocessorDefinitions="WIN32;_WINDOWS;_DEBUG"
 				MinimalRebuild="true"
 				BasicRuntimeChecks="3"
-				RuntimeLibrary="3"
+				RuntimeLibrary="0"
 				UsePrecompiledHeader="2"
 				WarningLevel="3"
 				Detect64BitPortabilityProblems="true"
@@ -190,7 +190,7 @@
 			OutputDirectory="$(SolutionDir)$(ConfigurationName)"
 			IntermediateDirectory="$(ConfigurationName)"
 			ConfigurationType="1"
-			UseOfMFC="2"
+			UseOfMFC="1"
 			CharacterSet="1"
 			WholeProgramOptimization="1"
 			>
@@ -217,7 +217,7 @@
 				Name="VCCLCompilerTool"
 				PreprocessorDefinitions="WIN32;_WINDOWS;NDEBUG"
 				MinimalRebuild="false"
-				RuntimeLibrary="2"
+				RuntimeLibrary="0"
 				UsePrecompiledHeader="2"
 				WarningLevel="3"
 				Detect64BitPortabilityProblems="true"
@@ -476,11 +476,11 @@
 				>
 			</File>
 			<File
-				RelativePath="..\..\..\..\Random Photoshops\I Don&apos;t Want Windows 10\idw_winX.bmp"
+				RelativePath=".\res\idw_winX.bmp"
 				>
 			</File>
 			<File
-				RelativePath=".\res\idw_winX.bmp"
+				RelativePath="..\..\..\..\Random Photoshops\I Don&apos;t Want Windows 10\idw_winX.bmp"
 				>
 			</File>
 		</Filter>
