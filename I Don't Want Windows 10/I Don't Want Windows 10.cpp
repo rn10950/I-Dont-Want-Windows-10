@@ -1,4 +1,4 @@
-0// I Don't Want Windows 10.cpp : Defines the class behaviors for the application.
+// I Don't Want Windows 10.cpp : Defines the class behaviors for the application.
 //
 
 #include "stdafx.h"
