@@ -72,24 +72,23 @@ IDR_MAINFRAME           ICON                    "res\\I Don't Want Windows 10.ic
 // Dialog
 //
 
-IDD_IDONTWANTWINDOWS10_DIALOG DIALOGEX 0, 0, 334, 250
+IDD_IDONTWANTWINDOWS10_DIALOG DIALOGEX 0, 0, 334, 226
 STYLE DS_SETFONT | DS_3DLOOK | DS_FIXEDSYS | WS_MINIMIZEBOX | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU
 EXSTYLE WS_EX_APPWINDOW
 CAPTION "rn10950's I Don't Want Windows 10"
 FONT 8, "MS Shell Dlg", 0, 0, 0x1
 BEGIN
-    DEFPUSHBUTTON   "I Agree",IDOK,277,227,50,16
-    PUSHBUTTON      "I Don't Agree",IDCANCEL,219,227,50,16
-    CTEXT           "Use this utility to uninstall the ""Get Windows 10"" (KB3035583) update from your system.",IDC_STATIC,7,54,320,8
-    GROUPBOX        "Terms and Conditions",IDC_STATIC,7,71,320,152
-    LTEXT           "By using this unofficial patch you agree to the following:",IDC_STATIC,17,86,289,14
-    LTEXT           "- This patch was not created by Microsoft and may do damage to your system",IDC_STATIC,29,102,271,13
-    LTEXT           "- KB3035583 (The Update) may come back at a later date",IDC_STATIC,29,111,283,13
-    LTEXT           "ANY NEGATIVE EFFECTS OF THIS ""PATCH"" ARE NOT THE RESPONSIBILITY OF THE DEVELOPER. USE AT YOUR OWN RISK.",IDC_STATIC,20,176,274,21
-    LTEXT           "I am not affiliated with Microsoft Corporation in any way. Microsoft, Windows, and Windows 10 are property of Microsoft Corporation",IDC_STATIC,20,200,261,20
+    DEFPUSHBUTTON   "I Agree",IDOK,277,203,50,16
+    PUSHBUTTON      "I Don't Agree",IDCANCEL,219,203,50,16
+    CTEXT           "Use this utility to uninstall the ""Get Windows 10"" (KB3035583) update from your system.",IDC_STATIC,7,51,320,8
+    GROUPBOX        "Terms and Conditions",IDC_STATIC,7,64,320,135
+    LTEXT           "By using this unofficial patch you agree to the following:",IDC_STATIC,17,80,289,14
+    LTEXT           "- This patch was not created by Microsoft and may do damage to your system",IDC_STATIC,29,96,271,13
+    LTEXT           "- KB3035583 (The Update) may come back at a later date",IDC_STATIC,29,105,283,13
+    LTEXT           "ANY NEGATIVE EFFECTS OF THIS ""PATCH"" ARE NOT THE RESPONSIBILITY OF THE DEVELOPER. USE AT YOUR OWN RISK.",IDC_STATIC,19,144,274,21
+    LTEXT           "I am not affiliated with Microsoft Corporation in any way. Microsoft, Windows, and Windows 10 are property of Microsoft Corporation",IDC_STATIC,19,168,261,20
     CONTROL         131,IDC_STATIC,"Static",SS_BITMAP | SS_REALSIZEIMAGE,7,7,320,37
-    LTEXT           "Once you click ""I Agree"", accept the Windows prompt to remove the update. You may need to restart your computer for the changes to take effect.",IDC_STATIC,19,127,256,16
-    LTEXT           "This update only applies to Windows 7 and Windows 8.1 and you must be an Administrator",IDC_STATIC,19,151,271,16
+    LTEXT           "Once you click ""I Agree"", accept the Windows prompt to remove the update. You may need to restart your computer for the changes to take effect.",IDC_STATIC,19,121,256,16
 END
 
 
@@ -145,7 +144,7 @@ BEGIN
         LEFTMARGIN, 7
         RIGHTMARGIN, 327
         TOPMARGIN, 7
-        BOTTOMMARGIN, 243
+        BOTTOMMARGIN, 219
     END
 END
 #endif    // APSTUDIO_INVOKED

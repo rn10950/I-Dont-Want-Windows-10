@@ -13,6 +13,7 @@
 #define new DEBUG_NEW
 #endif
 
+PVOID OldValue = NULL;
 
 // c_idk_winX
 
@@ -163,13 +164,23 @@ BOOL c_idk_winX::InitInstance()
 				{
 				if(IsWow64()) // 64-bit Windows (WoW64)
 					{
+				    if( Wow64DisableWow64FsRedirection(&OldValue) ) 
+						{
+							//  Anything in this block uses the system native files and not the WoW64 ones
+							
+							// put native WoW64 code here
+							system("wusa /uninstall /kb:3035583");
+							//system("wusa /?"); // use this for testing
 
-					// for some retarded reason, %windir%\sysnative\wusa.exe does not exist
-					// so we must tell x64 users to run the x64 executable until we can figure
-					// out how to use the native system wusa from a 32-bit application
-
-					// if I ever get MessageBox to work, replace line below with a message box
-					system("cls & @echo off & title I Don't Want Windows 10 & echo You must run the x64 version on this computer. & echo. & pause");
+							//  Immediately re-enable redirection. Note that any resources
+							//  associated with OldValue are cleaned up by this call.
+							if ( FALSE == Wow64RevertWow64FsRedirection(OldValue) )
+							{
+								//  Failure to re-enable redirection should be considered
+								//  a criticial failure and execution aborted.
+								return 0;
+							}
+						}
 					}
 				else // 32-bit Windows (or native x64)
 					{
