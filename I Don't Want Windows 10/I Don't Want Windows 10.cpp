@@ -1,4 +1,4 @@
-// I Don't Want Windows 10.cpp : Defines the class behaviors for the application.
+0// I Don't Want Windows 10.cpp : Defines the class behaviors for the application.
 //
 
 #include "stdafx.h"
@@ -156,7 +156,8 @@ BOOL c_idk_winX::InitInstance()
 
 			bIsSupported = 
 			   ( (osvi.dwMajorVersion == 6) && (osvi.dwMinorVersion == 1) ||
-			   ( (osvi.dwMajorVersion == 6) && (osvi.dwMinorVersion == 3) ));
+			   ( (osvi.dwMajorVersion == 6) && (osvi.dwMinorVersion == 2) ||
+			   ( (osvi.dwMajorVersion == 6) && (osvi.dwMinorVersion == 3) )));
 			// run code
 			if(bIsSupported) // Windows 7 or Windows 8.1
 				{
