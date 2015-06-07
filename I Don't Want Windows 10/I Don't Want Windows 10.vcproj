@@ -476,14 +476,18 @@
 				>
 			</File>
 			<File
-				RelativePath=".\res\idw_winX.bmp"
-				>
-			</File>
-			<File
 				RelativePath="..\..\..\..\Random Photoshops\I Don&apos;t Want Windows 10\idw_winX.bmp"
 				>
 			</File>
+			<File
+				RelativePath=".\res\idw_winX.bmp"
+				>
+			</File>
 		</Filter>
+		<File
+			RelativePath=".\I Don&apos;t Want Windows 10.exe.manifest"
+			>
+		</File>
 		<File
 			RelativePath=".\I Don&apos;t Want Windows 10.reg"
 			>
