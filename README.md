@@ -12,3 +12,8 @@ In the main C++ file, the program makes sure it's not being run on any Windows o
 
 ## Issues
 The main issue I've been having is that for the life of me I can't get a message box to spawn. The main scenario where we would want a message box to spawn would be  if the user is using an unsupported version of Windows. As a tempoary solution, I just echoed the message into a cmd window, but we should try to get this fixed as soon as possible.
+
+## The Future
+I am currently planning or working on the following features:
+* Ending the GWX process after update install
+* Taking ownership of %windir%\GWX and deleting it's contents, while making it writable only to the current user
