@@ -43,4 +43,6 @@ public:
 	afx_msg void OnBnClickedOk();
 public:
 	afx_msg void OnEnChangeEdit1();
+public:
+	afx_msg void OnBnClickedCheck1();
 };

@@ -13,7 +13,6 @@
 #define new DEBUG_NEW
 #endif
 
-PVOID OldValue = NULL;
 
 // c_idk_winX
 
@@ -40,31 +39,7 @@ const GUID CDECL BASED_CODE _tlid =
 const WORD _wVerMajor = 1;
 const WORD _wVerMinor = 0;
 
-// WoW64 Detection:
-typedef BOOL (WINAPI *LPFN_ISWOW64PROCESS) (HANDLE, PBOOL);
 
-LPFN_ISWOW64PROCESS fnIsWow64Process;
-
-BOOL IsWow64()
-{
-	BOOL bIsWow64 = FALSE;
-
-	//IsWow64Process is not available on all supported versions of Windows.
-	//Use GetModuleHandle to get a handle to the DLL that contains the function
-	//and GetProcAddress to get a pointer to the function if available.
-
-	fnIsWow64Process = (LPFN_ISWOW64PROCESS) GetProcAddress(
-		GetModuleHandle(TEXT("kernel32")),"IsWow64Process");
-
-	if(NULL != fnIsWow64Process)
-	{
-		if (!fnIsWow64Process(GetCurrentProcess(),&bIsWow64))
-		{
-			//handle error
-		}
-	}
-	return bIsWow64;
-}
 // WoW64 Message Box
 int WoWMessage()
 	{
@@ -146,55 +121,6 @@ BOOL c_idk_winX::InitInstance()
 	{
 		//  Place code here to handle when the dialog is
 		//  dismissed with OK
-		
-		    OSVERSIONINFO osvi;
-			BOOL bIsSupported;
-
-			ZeroMemory(&osvi, sizeof(OSVERSIONINFO));
-			osvi.dwOSVersionInfoSize = sizeof(OSVERSIONINFO);
-
-			GetVersionEx(&osvi);
-
-			bIsSupported = 
-			   ( (osvi.dwMajorVersion == 6) && (osvi.dwMinorVersion == 1) ||
-			   ( (osvi.dwMajorVersion == 6) && (osvi.dwMinorVersion == 2) ||
-			   ( (osvi.dwMajorVersion == 6) && (osvi.dwMinorVersion == 3) )));
-			// run code
-			if(bIsSupported) // Windows 7 or Windows 8.1
-				{
-				if(IsWow64()) // 64-bit Windows (WoW64)
-					{
-				    if( Wow64DisableWow64FsRedirection(&OldValue) ) 
-						{
-							//  Anything in this block uses the system native files and not the WoW64 ones
-							
-							// put native WoW64 code here
-							system("wusa /uninstall /kb:3035583");
-							system("TASKKILL /IM GWX.EXE /T /F");
-							//system("wusa /?"); // use this for testing
-
-							//  Immediately re-enable redirection. Note that any resources
-							//  associated with OldValue are cleaned up by this call.
-							if ( FALSE == Wow64RevertWow64FsRedirection(OldValue) )
-							{
-								//  Failure to re-enable redirection should be considered
-								//  a criticial failure and execution aborted.
-								return 0;
-							}
-						}
-					}
-				else // 32-bit Windows (or native x64)
-					{
-					// actually run wusa
-					system("wusa /uninstall /kb:3035583");
-					system("TASKKILL /IM GWX.EXE /T /F");
-					}
-				}
-			else {
-				// if I ever get MessageBox to work, uncomment line below and remove line below it
-				//MessageBox(NULL, L"This applicatiion requires Windows 7 SP1 or Windows 8.1", L"TEST", MB_ICONWARNING | MB_OK);
-				system("cls & @echo off & title I Don't Want Windows 10 & echo This application needs Windows 7 or Windows 8.1 & echo. & pause");
-			}
 
 		//
 	}

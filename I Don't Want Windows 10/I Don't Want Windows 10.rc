@@ -72,14 +72,14 @@ IDR_MAINFRAME           ICON                    "res\\I Don't Want Windows 10.ic
 // Dialog
 //
 
-IDD_IDONTWANTWINDOWS10_DIALOG DIALOGEX 0, 0, 334, 226
+IDD_IDONTWANTWINDOWS10_DIALOG DIALOGEX 0, 0, 334, 244
 STYLE DS_SETFONT | DS_3DLOOK | DS_FIXEDSYS | WS_MINIMIZEBOX | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU
 EXSTYLE WS_EX_APPWINDOW
 CAPTION "rn10950's I Don't Want Windows 10"
 FONT 8, "MS Shell Dlg", 0, 0, 0x1
 BEGIN
-    DEFPUSHBUTTON   "I Agree",IDOK,277,203,50,16
-    PUSHBUTTON      "I Don't Agree",IDCANCEL,219,203,50,16
+    DEFPUSHBUTTON   "I Agree",IDOK,277,221,50,16
+    PUSHBUTTON      "I Don't Agree",IDCANCEL,219,221,50,16
     CTEXT           "Use this utility to uninstall the ""Get Windows 10"" (KB3035583) update from your system.",IDC_STATIC,7,51,320,8
     GROUPBOX        "Terms and Conditions",IDC_STATIC,7,64,320,135
     LTEXT           "By using this unofficial patch you agree to the following:",IDC_STATIC,17,80,289,14
@@ -89,6 +89,31 @@ BEGIN
     LTEXT           "I am not affiliated with Microsoft Corporation in any way. Microsoft, Windows, and Windows 10 are property of Microsoft Corporation",IDC_STATIC,19,168,261,20
     CONTROL         131,IDC_STATIC,"Static",SS_BITMAP | SS_REALSIZEIMAGE,7,7,320,37
     LTEXT           "Once you click ""I Agree"", accept the Windows prompt to remove the update. You may need to restart your computer for the changes to take effect.",IDC_STATIC,19,121,256,16
+    CONTROL         "Advanced Mode",IDC_ADVHELP_CB,"Button",BS_AUTOCHECKBOX,10,205,67,10
+END
+
+IDD_ADVHELP DIALOGEX 0, 0, 298, 129
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Advanced Mode"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    DEFPUSHBUTTON   "Yes",IDOK,241,108,50,14
+    PUSHBUTTON      "No",IDCANCEL,185,108,50,14
+    LTEXT           "Advanced Mode Will:",IDC_STATIC,7,9,234,14
+    LTEXT           "- Make you (the Administrator) the owner of C:\\WINDOWS\\System32\\GWX",IDC_STATIC,19,22,245,11
+    LTEXT           "- Delete all contents of C:\\WINDOWS\\System32\\GWX",IDC_STATIC,20,34,247,8
+    LTEXT           "- Set C:\\WINDOWS\\System32\\GWX to read-only",IDC_STATIC,20,45,271,13
+    LTEXT           "Only proceed with Advanced Mode if you understand the possible repercussions of using it.",IDC_STATIC,7,62,262,20
+    LTEXT           "Would you like to use Advanced Mode?",IDC_STATIC,7,92,284,11
+END
+
+IDD_UNSUP_OS DIALOGEX 0, 0, 291, 45
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Unsupported Operating System"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,234,24,50,14
+    LTEXT           "This application requires Windows 7 or Windows 8.1",IDC_STATIC,7,11,277,12
 END
 
 
@@ -144,7 +169,23 @@ BEGIN
         LEFTMARGIN, 7
         RIGHTMARGIN, 327
         TOPMARGIN, 7
-        BOTTOMMARGIN, 219
+        BOTTOMMARGIN, 237
+    END
+
+    IDD_ADVHELP, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 291
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 122
+    END
+
+    IDD_UNSUP_OS, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 284
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 38
     END
 END
 #endif    // APSTUDIO_INVOKED

@@ -438,6 +438,10 @@
 				>
 			</File>
 			<File
+				RelativePath=".\idw_winX_logic.h"
+				>
+			</File>
+			<File
 				RelativePath=".\Resource.h"
 				>
 			</File>
@@ -476,11 +480,11 @@
 				>
 			</File>
 			<File
-				RelativePath=".\res\idw_winX.bmp"
+				RelativePath="..\..\..\..\Random Photoshops\I Don&apos;t Want Windows 10\idw_winX.bmp"
 				>
 			</File>
 			<File
-				RelativePath="..\..\..\..\Random Photoshops\I Don&apos;t Want Windows 10\idw_winX.bmp"
+				RelativePath=".\res\idw_winX.bmp"
 				>
 			</File>
 		</Filter>

@@ -5,6 +5,9 @@
 #include "I Don't Want Windows 10.h"
 #include "I Don't Want Windows 10Dlg.h"
 #include "DlgProxy.h"
+#include "windows.h"
+#pragma comment (lib, "user32.lib")
+#include "idw_winX_logic.h"
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
@@ -45,6 +48,7 @@ BEGIN_MESSAGE_MAP(c_idk_winX_dlg, CDialog)
 	ON_WM_QUERYDRAGICON()
 	//}}AFX_MSG_MAP
 	ON_BN_CLICKED(IDOK, &c_idk_winX_dlg::OnBnClickedOk)
+	ON_BN_CLICKED(IDC_ADVHELP_CB, &c_idk_winX_dlg::OnBnClickedCheck1)
 END_MESSAGE_MAP()
 
 
@@ -143,6 +147,9 @@ void c_idk_winX_dlg::OnBnClickedOk()
 {
 	// TODO: Add your control notification handler code here
 	OnOK();
+	//MessageBox(L"TEST");
+	INT_PTR runRet = -1;
+	runRet = run();
 }
 
 void c_idk_winX_dlg::OnEnChangeEdit1()
@@ -153,4 +160,50 @@ void c_idk_winX_dlg::OnEnChangeEdit1()
 	// with the ENM_CHANGE flag ORed into the mask.
 
 	// TODO:  Add your control notification handler code here
+	
+}
+
+void c_idk_winX_dlg::OnBnClickedCheck1()
+{
+	// TODO: Add your control notification handler code here
+	CDialog aboutDlg(IDD_ADVHELP);
+	// Create and show the dialog box
+   INT_PTR nRet = -1;
+   nRet = aboutDlg.DoModal();
+   
+   // Handle the return value from DoModal 
+   switch (nRet)
+   {
+      case -1: 
+         AfxMessageBox(_T("Dialog box could not be created!"));
+         break;
+      case IDABORT:
+		    {
+			 // Do something 
+			 CButton* pBtn = (CButton*) GetDlgItem(IDC_ADVHELP_CB);
+			 pBtn->SetCheck(0);// uncheck it
+			 break;
+			}
+      case IDOK:
+			{
+			 // Do something 
+			 CButton* pBtn = (CButton*) GetDlgItem(IDC_ADVHELP_CB);
+			 pBtn->SetCheck(1);// check it
+			 break;
+			}
+      case IDCANCEL:
+			{
+			 // Do something 
+			 CButton* pBtn = (CButton*) GetDlgItem(IDC_ADVHELP_CB);
+			 pBtn->SetCheck(0);// uncheck it
+			 break;
+			}
+      default:
+		     {
+			 // Do something 
+			 CButton* pBtn = (CButton*) GetDlgItem(IDC_ADVHELP_CB);
+			 pBtn->SetCheck(0);// uncheck it
+			 break;
+			 }
+   };
 }
