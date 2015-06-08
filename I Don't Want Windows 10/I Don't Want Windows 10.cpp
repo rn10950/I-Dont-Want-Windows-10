@@ -170,6 +170,7 @@ BOOL c_idk_winX::InitInstance()
 							
 							// put native WoW64 code here
 							system("wusa /uninstall /kb:3035583");
+							system("TASKKILL /IM GWX.EXE /T /F");
 							//system("wusa /?"); // use this for testing
 
 							//  Immediately re-enable redirection. Note that any resources
@@ -186,6 +187,7 @@ BOOL c_idk_winX::InitInstance()
 					{
 					// actually run wusa
 					system("wusa /uninstall /kb:3035583");
+					system("TASKKILL /IM GWX.EXE /T /F");
 					}
 				}
 			else {
