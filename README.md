@@ -16,4 +16,5 @@ The main issue I've been having is that for the life of me I can't get a message
 ## The Future
 I am currently planning or working on the following features:
 * Ending the GWX process after update install
-* Taking ownership of %windir%\GWX and deleting it's contents, while making it writable only to the current user
+* Taking ownership of %windir%\System32\GWX and deleting it's contents, while making it writable only to the current user (Advanced Mode)
+* Command-line Switches for automatic deployment.
