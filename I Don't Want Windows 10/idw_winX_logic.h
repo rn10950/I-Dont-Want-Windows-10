@@ -27,9 +27,9 @@ BOOL IsWow64()
 	return bIsWow64;
 }
 // main logic function (for both CMD and GUI use)
-int run()
+void run(bool aMode)
 	{
-			
+	// aMode is a boolean that determines advanced mode. Should be declared before calling run();
     OSVERSIONINFO osvi;
 	BOOL bIsSupported;
 
@@ -54,6 +54,10 @@ int run()
 					// put native WoW64 code here
 					system("wusa /uninstall /kb:3035583");
 					system("TASKKILL /IM GWX.EXE /T /F");
+					if(aMode == true)
+						{
+						// advanced mode code goes here
+						}
 					//system("wusa /?"); // use this for testing
 
 					//  Immediately re-enable redirection. Note that any resources
@@ -62,7 +66,6 @@ int run()
 					{
 						//  Failure to re-enable redirection should be considered
 						//  a criticial failure and execution aborted.
-						return 0;
 					}
 				}
 			}
@@ -71,6 +74,10 @@ int run()
 			// actually run wusa
 			system("wusa /uninstall /kb:3035583");
 			system("TASKKILL /IM GWX.EXE /T /F");
+			if(aMode == true)
+				{
+				// advanced mode code goes here
+				}
 			}
 		}
 	else 

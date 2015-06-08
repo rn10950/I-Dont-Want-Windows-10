@@ -23,6 +23,7 @@ IMPLEMENT_DYNAMIC(c_idk_winX_dlg, CDialog);
 
 c_idk_winX_dlg::c_idk_winX_dlg(CWnd* pParent /*=NULL*/)
 	: CDialog(c_idk_winX_dlg::IDD, pParent)
+	, aModeCB(FALSE)
 {
 	m_hIcon = AfxGetApp()->LoadIcon(IDR_MAINFRAME);
 	m_pAutoProxy = NULL;
@@ -40,6 +41,7 @@ c_idk_winX_dlg::~c_idk_winX_dlg()
 void c_idk_winX_dlg::DoDataExchange(CDataExchange* pDX)
 {
 	CDialog::DoDataExchange(pDX);
+	DDX_Check(pDX, IDC_ADVHELP_CB, aModeCB);
 }
 
 BEGIN_MESSAGE_MAP(c_idk_winX_dlg, CDialog)
@@ -148,8 +150,19 @@ void c_idk_winX_dlg::OnBnClickedOk()
 	// TODO: Add your control notification handler code here
 	OnOK();
 	//MessageBox(L"TEST");
-	INT_PTR runRet = -1;
-	runRet = run();
+	// determine if the advanced mode checkbox is set and call run() accordingly
+	if (aModeCB == true)
+		{
+		// checkbox checked, run adv. mode
+		bool aMode = true;
+		run(aMode);
+		}
+	else
+		{
+		// checkbox unchecked, no adv. mode
+		bool aMode = false;
+		run(aMode);
+		}
 }
 
 void c_idk_winX_dlg::OnEnChangeEdit1()

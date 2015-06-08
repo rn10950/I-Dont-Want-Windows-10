@@ -45,4 +45,7 @@ public:
 	afx_msg void OnEnChangeEdit1();
 public:
 	afx_msg void OnBnClickedCheck1();
+public:
+	// advanced mode checkbox
+	BOOL aModeCB;
 };
