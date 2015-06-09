@@ -27,7 +27,7 @@ BOOL IsWow64()
 	return bIsWow64;
 }
 // main logic function (for both CMD and GUI use)
-void run(bool aMode)
+void run(bool aMode, bool gui)
 	{
 	// aMode is a boolean that determines advanced mode. Should be declared before calling run();
     OSVERSIONINFO osvi;
@@ -83,6 +83,13 @@ void run(bool aMode)
 	else 
 		{
 		// unsupported OS message box (XP/Vista/8 RTM)
-		MessageBox(NULL, L"This applicatiion requires Windows 7 SP1 or Windows 8.1", L"Unsupported Operating System", MB_ICONWARNING | MB_OK);
+		if(gui == true)
+			{
+			MessageBox(NULL, L"This applicatiion requires Windows 7 SP1 or Windows 8.1", L"Unsupported Operating System", MB_ICONWARNING | MB_OK);
+			}
+		else
+			{
+			printf("This applicatiion requires Windows 7 SP1 or Windows 8.1", L"Unsupported Operating System");
+			}
 		}
 	}

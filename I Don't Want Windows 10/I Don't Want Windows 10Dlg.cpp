@@ -155,13 +155,13 @@ void c_idk_winX_dlg::OnBnClickedOk()
 		{
 		// checkbox checked, run adv. mode
 		bool aMode = true;
-		run(aMode);
+		run(aMode, true);
 		}
 	else
 		{
 		// checkbox unchecked, no adv. mode
 		bool aMode = false;
-		run(aMode);
+		run(aMode, true);
 		}
 }
 
