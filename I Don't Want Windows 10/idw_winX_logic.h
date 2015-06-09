@@ -1,6 +1,17 @@
 // VARIABLE DECLARATIONS
 PVOID OldValue = NULL;
 
+// system code to be run (after arch detection)
+void mainCode(bool aMode)
+	{
+	system("wusa /uninstall /kb:3035583");
+	system("TASKKILL /IM GWX.EXE /T /F");
+	if(aMode == true)
+		{
+		// advanced mode code goes here
+		}
+	}
+
 // WoW64 Detection:
 typedef BOOL (WINAPI *LPFN_ISWOW64PROCESS) (HANDLE, PBOOL);
 
@@ -52,12 +63,8 @@ void run(bool aMode, bool gui)
 					//  Anything in this block uses the system native files and not the WoW64 ones
 					
 					// put native WoW64 code here
-					system("wusa /uninstall /kb:3035583");
-					system("TASKKILL /IM GWX.EXE /T /F");
-					if(aMode == true)
-						{
-						// advanced mode code goes here
-						}
+					mainCode(aMode);
+					
 					//system("wusa /?"); // use this for testing
 
 					//  Immediately re-enable redirection. Note that any resources
@@ -72,17 +79,13 @@ void run(bool aMode, bool gui)
 		else // 32-bit Windows (or native x64)
 			{
 			// actually run wusa
-			system("wusa /uninstall /kb:3035583");
-			system("TASKKILL /IM GWX.EXE /T /F");
-			if(aMode == true)
-				{
-				// advanced mode code goes here
-				}
+			mainCode(aMode);
 			}
 		}
 	else 
 		{
-		// unsupported OS message box (XP/Vista/8 RTM)
+		// unsupported OS message box (XP/Vista/8 RTM) if being run from a gui
+		// unsupported message in console if being run from CMD
 		if(gui == true)
 			{
 			MessageBox(NULL, L"This applicatiion requires Windows 7 SP1 or Windows 8.1", L"Unsupported Operating System", MB_ICONWARNING | MB_OK);
