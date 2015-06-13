@@ -9,6 +9,12 @@ void mainCode(bool aMode)
 	if(aMode == true)
 		{
 		// advanced mode code goes here
+		// take ownership of %windir%\System32\GWX\ and delete contents
+
+		system("takeown /f %windir%\\System32\\GWX\\ /R /D Y");
+		system("ATTRIB -S %windir%\\System32\\GWX\\* /S /D");
+		system("DEL /F /Q %windir%\\System32\\GWX\\* /S");
+		system("ATTRIB +R %windir%\\System32\\GWX\\* /S /D");
 		}
 	}
 

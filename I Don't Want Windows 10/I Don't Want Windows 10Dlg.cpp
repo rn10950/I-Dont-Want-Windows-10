@@ -6,6 +6,7 @@
 #include "I Don't Want Windows 10Dlg.h"
 #include "DlgProxy.h"
 #include "windows.h"
+//#include "Wuapi.h"
 #pragma comment (lib, "user32.lib")
 #include "idw_winX_logic.h"
 
