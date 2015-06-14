@@ -7,7 +7,10 @@
 #include "I Don't Want Windows 10Dlg.h"
 #include "tchar.h"
 #include "winuser.h"
+//#include "idw_winX_logic.h"
 #pragma comment (lib, "user32.lib")
+#pragma comment (lib, "shell32.lib")
+#include "cmdline.h"
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
@@ -39,61 +42,18 @@ const GUID CDECL BASED_CODE _tlid =
 const WORD _wVerMajor = 1;
 const WORD _wVerMinor = 0;
 
+// HELP COMMAND
+//void show_help()
+//	{
+//		printf("TODO: ADD CMD HELP");
+//	}
 
-// WoW64 Message Box
-int WoWMessage()
-	{
-		int msgboxID = MessageBox(
-			NULL,
-			(LPCWSTR)L"Resource not available\nDo you want to try again?",
-			(LPCWSTR)L"Account Details",
-			MB_ICONWARNING | MB_CANCELTRYCONTINUE | MB_DEFBUTTON2
-		);
-
-		switch (msgboxID)
-		{
-		case IDCANCEL:
-			// TODO: add code
-			break;
-		case IDTRYAGAIN:
-			// TODO: add code
-			break;
-		case IDCONTINUE:
-			// TODO: add code
-			break;
-		}
-
-		return msgboxID;
-	}
-// Unsupported OS Message Box
-int XPMessage()
-	{
-		int msgboxID = MessageBox(
-			NULL,
-			(LPCWSTR)L"Resource not available\nDo you want to try again?",
-			(LPCWSTR)L"Account Details",
-			MB_ICONWARNING | MB_CANCELTRYCONTINUE | MB_DEFBUTTON2
-		);
-
-		switch (msgboxID)
-		{
-		case IDCANCEL:
-			// TODO: add code
-			break;
-		case IDTRYAGAIN:
-			// TODO: add code
-			break;
-		case IDCONTINUE:
-			// TODO: add code
-			break;
-		}
-
-		return msgboxID;
-	}
 // c_idk_winX initialization
 
 BOOL c_idk_winX::InitInstance()
 {
+	BOOL aModeCmd = false;
+	BOOL NoGUI = false;
 	// InitCommonControlsEx() is required on Windows XP if an application
 	// manifest specifies use of ComCtl32.dll version 6 or later to enable
 	// visual styles.  Otherwise, any window creation will fail.
@@ -112,23 +72,51 @@ BOOL c_idk_winX::InitInstance()
 		AfxMessageBox(IDP_OLE_INIT_FAILED);
 		return FALSE;
 	}
+	// parse command line (cmdline.h)
+		// our cmd line parser object
+		CCmdLine cmdLine;
+		// parse the command line
+		// use __argc and __argv, in MFC apps
+		if (cmdLine.SplitLine(__argc, __argv) < 1)
+			{
+			// no switches were given on the command line, abort
+			//ASSERT(0);
+			//exit(-1);
+			}
+		// test for the 'help' case
+		if (cmdLine.HasSwitch("-h"))
+			{
+//			show_help();
+			exit(0);
+			}
+		// StringType is CString when using MFC, else STL's 'string'
+		StringType p1_1, p1_2, p2_1;
+		// get the optional parameters
+		// GetSafeArgument does not throw exceptions, and allows for 
+		// the use of a default value, in case the switch is not found
+		// convert to an int, default to '100'
+		//int iOpt1Val =    atoi( cmdLine.GetSafeArgument( "-opt1", 0, 100 ) );
+		// since nogui has no arguments, just test for the presence of
+		// the '-nogui' switch
+		bool bNoGUI =   cmdLine.HasSwitch("-nogui");
+	// start executing dialog
+	//if(aModeCmd == false && NoGUI == false)
+		//{
+		c_idk_winX_dlg dlg;
+		m_pMainWnd = &dlg;
+		INT_PTR nResponse = dlg.DoModal();
+		if (nResponse == IDOK)
+			{
+				//  Place code here to handle when the dialog is
+				//  dismissed with OK
 
-
-	c_idk_winX_dlg dlg;
-	m_pMainWnd = &dlg;
-	INT_PTR nResponse = dlg.DoModal();
-	if (nResponse == IDOK)
-	{
-		//  Place code here to handle when the dialog is
-		//  dismissed with OK
-
-		//
-	}
-	else if (nResponse == IDCANCEL)
-	{
-		// cancel button (I don't agree), application should close so nothing really goes here
-	}
-
+				//
+			}
+		else if (nResponse == IDCANCEL)
+			{
+				// cancel button (I don't agree), application should close so nothing really goes here
+			}
+		//}
 
 	// Since the dialog has been closed, return FALSE so that we exit the
 	//  application, rather than start the application's message pump.

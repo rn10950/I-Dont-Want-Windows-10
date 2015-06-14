@@ -9,6 +9,7 @@
 //#include "Wuapi.h"
 #pragma comment (lib, "user32.lib")
 #include "idw_winX_logic.h"
+#include "cmdline.h"
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
@@ -148,6 +149,12 @@ BOOL c_idk_winX_dlg::CanExit()
 
 void c_idk_winX_dlg::OnBnClickedOk()
 {
+	//if(m_baMode == true){
+	//	MessageBox(NULL, L"aMode is true", NULL);
+
+
+		//TODO: use global vars over in the cmdline function and use /nogui
+	//}
 	// TODO: Add your control notification handler code here
 	OnOK();
 	//MessageBox(L"TEST");

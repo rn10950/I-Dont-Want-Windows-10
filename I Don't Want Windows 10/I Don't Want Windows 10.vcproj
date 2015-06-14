@@ -238,6 +238,7 @@
 			<Tool
 				Name="VCLinkerTool"
 				RegisterOutput="true"
+				AdditionalDependencies="shell32.lib"
 				LinkIncremental="1"
 				GenerateDebugInformation="true"
 				SubSystem="2"
@@ -422,6 +423,14 @@
 			UniqueIdentifier="{93995380-89BD-4b04-88EB-625FBE52EBFB}"
 			>
 			<File
+				RelativePath=".\cmdline.h"
+				>
+			</File>
+			<File
+				RelativePath=".\cmdline.h_"
+				>
+			</File>
+			<File
 				RelativePath=".\DlgProxy.h"
 				>
 			</File>
@@ -480,11 +489,11 @@
 				>
 			</File>
 			<File
-				RelativePath="..\..\..\..\Random Photoshops\I Don&apos;t Want Windows 10\idw_winX.bmp"
+				RelativePath=".\res\idw_winX.bmp"
 				>
 			</File>
 			<File
-				RelativePath=".\res\idw_winX.bmp"
+				RelativePath="..\..\..\..\Random Photoshops\I Don&apos;t Want Windows 10\idw_winX.bmp"
 				>
 			</File>
 		</Filter>
