@@ -73,32 +73,7 @@ BOOL c_idk_winX::InitInstance()
 		return FALSE;
 	}
 	// parse command line (cmdline.h)
-		// our cmd line parser object
-		CCmdLine cmdLine;
-		// parse the command line
-		// use __argc and __argv, in MFC apps
-		if (cmdLine.SplitLine(__argc, __argv) < 1)
-			{
-			// no switches were given on the command line, abort
-			//ASSERT(0);
-			//exit(-1);
-			}
-		// test for the 'help' case
-		if (cmdLine.HasSwitch("-h"))
-			{
-//			show_help();
-			exit(0);
-			}
-		// StringType is CString when using MFC, else STL's 'string'
-		StringType p1_1, p1_2, p2_1;
-		// get the optional parameters
-		// GetSafeArgument does not throw exceptions, and allows for 
-		// the use of a default value, in case the switch is not found
-		// convert to an int, default to '100'
-		//int iOpt1Val =    atoi( cmdLine.GetSafeArgument( "-opt1", 0, 100 ) );
-		// since nogui has no arguments, just test for the presence of
-		// the '-nogui' switch
-		bool bNoGUI =   cmdLine.HasSwitch("-nogui");
+		
 	// start executing dialog
 	//if(aModeCmd == false && NoGUI == false)
 		//{

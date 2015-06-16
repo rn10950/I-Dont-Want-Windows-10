@@ -6,7 +6,7 @@
 
 
  /* File created by MIDL compiler version 6.00.0366 */
-/* at Sun Jun 14 14:42:26 2015
+/* at Sun Jun 14 20:20:36 2015
  */
 /* Compiler settings for .\IDontWantWindows10.idl:
     Oicf, W1, Zp8, env=Win32 (32b run)

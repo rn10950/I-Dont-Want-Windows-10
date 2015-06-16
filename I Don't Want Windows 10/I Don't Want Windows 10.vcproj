@@ -427,7 +427,15 @@
 				>
 			</File>
 			<File
-				RelativePath=".\cmdline.h_"
+				RelativePath=".\cmdline.h__"
+				>
+			</File>
+			<File
+				RelativePath=".\cmdline.h_new"
+				>
+			</File>
+			<File
+				RelativePath=".\cmdline.h_O"
 				>
 			</File>
 			<File
@@ -489,11 +497,11 @@
 				>
 			</File>
 			<File
-				RelativePath=".\res\idw_winX.bmp"
+				RelativePath="..\..\..\..\Random Photoshops\I Don&apos;t Want Windows 10\idw_winX.bmp"
 				>
 			</File>
 			<File
-				RelativePath="..\..\..\..\Random Photoshops\I Don&apos;t Want Windows 10\idw_winX.bmp"
+				RelativePath=".\res\idw_winX.bmp"
 				>
 			</File>
 		</Filter>

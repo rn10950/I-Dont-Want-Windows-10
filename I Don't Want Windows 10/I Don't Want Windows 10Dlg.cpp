@@ -9,7 +9,7 @@
 //#include "Wuapi.h"
 #pragma comment (lib, "user32.lib")
 #include "idw_winX_logic.h"
-#include "cmdline.h"
+//#include "cmdline.h"
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
