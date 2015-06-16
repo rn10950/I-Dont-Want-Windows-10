@@ -191,7 +191,7 @@
 			IntermediateDirectory="$(ConfigurationName)"
 			ConfigurationType="1"
 			UseOfMFC="1"
-			CharacterSet="1"
+			CharacterSet="0"
 			WholeProgramOptimization="1"
 			>
 			<Tool
@@ -497,11 +497,11 @@
 				>
 			</File>
 			<File
-				RelativePath="..\..\..\..\Random Photoshops\I Don&apos;t Want Windows 10\idw_winX.bmp"
+				RelativePath=".\res\idw_winX.bmp"
 				>
 			</File>
 			<File
-				RelativePath=".\res\idw_winX.bmp"
+				RelativePath="..\..\..\..\Random Photoshops\I Don&apos;t Want Windows 10\idw_winX.bmp"
 				>
 			</File>
 		</Filter>

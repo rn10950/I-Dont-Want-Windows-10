@@ -94,7 +94,7 @@ void run(bool aMode, bool gui)
 		// unsupported message in console if being run from CMD
 		if(gui == true)
 			{
-			MessageBox(NULL, L"This applicatiion requires Windows 7 SP1 or Windows 8.1", L"Unsupported Operating System", MB_ICONWARNING | MB_OK);
+			MessageBox(NULL, "This applicatiion requires Windows 7 SP1 or Windows 8.1", "Unsupported Operating System", MB_ICONWARNING | MB_OK);
 			}
 		else
 			{

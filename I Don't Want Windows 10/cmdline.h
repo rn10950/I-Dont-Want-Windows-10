@@ -1,5 +1,7 @@
 // NEW COMMAND-LINE INCLUDE
 #include "stdafx.h"
+#include "string.h"
+#include "string"
 
 class CNewCommandLineInfo : public CCommandLineInfo
 {
