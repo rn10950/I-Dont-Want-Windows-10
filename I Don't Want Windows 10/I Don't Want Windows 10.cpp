@@ -79,15 +79,15 @@ BOOL c_idk_winX::InitInstance()
 		return FALSE;
 	}
 	// add stdout support
-	AllocConsole();
-		{ 
+	//AllocConsole();
+	//	{ 
 		// setup stdout
-		int fd = _open_osfhandle( (long)GetStdHandle( STD_OUTPUT_HANDLE ), 0);
-		FILE* fp = _fdopen( fd, "w" );
+	//	int fd = _open_osfhandle( (long)GetStdHandle( STD_OUTPUT_HANDLE ), 0);
+	//	FILE* fp = _fdopen( fd, "w" );
 	   
-		*stdout = *fp;
-		setvbuf( stdout, NULL, _IONBF, 0 );
-		}
+	//	*stdout = *fp;
+	//	setvbuf( stdout, NULL, _IONBF, 0 );
+	//	}
 	// parse command line (cmdline.h)
 	CCustomCommandLineInfo oInfo;
 	ParseCommandLine(oInfo);
