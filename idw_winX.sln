@@ -11,6 +11,8 @@ Global
 		Both Switches|x64 = Both Switches|x64
 		Debug|Win32 = Debug|Win32
 		Debug|x64 = Debug|x64
+		Help CMD Switch|Win32 = Help CMD Switch|Win32
+		Help CMD Switch|x64 = Help CMD Switch|x64
 		No GUI CMD Switch|Win32 = No GUI CMD Switch|Win32
 		No GUI CMD Switch|x64 = No GUI CMD Switch|x64
 		Release|Win32 = Release|Win32
@@ -29,6 +31,10 @@ Global
 		{2E00B3F4-F87E-4B10-B076-F3AEBD0D9514}.Debug|Win32.Build.0 = Debug|Win32
 		{2E00B3F4-F87E-4B10-B076-F3AEBD0D9514}.Debug|x64.ActiveCfg = Debug|x64
 		{2E00B3F4-F87E-4B10-B076-F3AEBD0D9514}.Debug|x64.Build.0 = Debug|x64
+		{2E00B3F4-F87E-4B10-B076-F3AEBD0D9514}.Help CMD Switch|Win32.ActiveCfg = Help CMD Switch|Win32
+		{2E00B3F4-F87E-4B10-B076-F3AEBD0D9514}.Help CMD Switch|Win32.Build.0 = Help CMD Switch|Win32
+		{2E00B3F4-F87E-4B10-B076-F3AEBD0D9514}.Help CMD Switch|x64.ActiveCfg = Help CMD Switch|x64
+		{2E00B3F4-F87E-4B10-B076-F3AEBD0D9514}.Help CMD Switch|x64.Build.0 = Help CMD Switch|x64
 		{2E00B3F4-F87E-4B10-B076-F3AEBD0D9514}.No GUI CMD Switch|Win32.ActiveCfg = No GUI CMD Switch|Win32
 		{2E00B3F4-F87E-4B10-B076-F3AEBD0D9514}.No GUI CMD Switch|Win32.Build.0 = No GUI CMD Switch|Win32
 		{2E00B3F4-F87E-4B10-B076-F3AEBD0D9514}.No GUI CMD Switch|x64.ActiveCfg = No GUI CMD Switch|x64

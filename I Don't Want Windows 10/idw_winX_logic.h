@@ -1,10 +1,23 @@
+#include "stdafx.h"
+#include <iostream>
+using namespace std;
+
 // VARIABLE DECLARATIONS
 PVOID OldValue = NULL;
 
 // system code to be run (after arch detection)
-void mainCode(bool aMode)
+void mainCode(bool aMode, bool guiMC)
 	{
-	system("wusa /uninstall /kb:3035583");
+	if(guiMC == true)
+		{
+		// GUI mode
+		system("wusa /uninstall /kb:3035583");
+		}
+	else if (guiMC == false)
+		{
+		// console mode
+		system("wusa /uninstall /kb:3035583 /quiet /norestart");
+		}
 	system("TASKKILL /IM GWX.EXE /T /F");
 	if(aMode == true)
 		{
@@ -69,7 +82,7 @@ void run(bool aMode, bool gui)
 					//  Anything in this block uses the system native files and not the WoW64 ones
 					
 					// put native WoW64 code here
-					mainCode(aMode);
+					mainCode(aMode, gui);
 					
 					//system("wusa /?"); // use this for testing
 
@@ -85,7 +98,7 @@ void run(bool aMode, bool gui)
 		else // 32-bit Windows (or native x64)
 			{
 			// actually run wusa
-			mainCode(aMode);
+			mainCode(aMode, gui);
 			}
 		}
 	else 
@@ -98,7 +111,7 @@ void run(bool aMode, bool gui)
 			}
 		else
 			{
-			printf("This applicatiion requires Windows 7 SP1 or Windows 8.1", L"Unsupported Operating System");
+			cout << "This applicatiion requires Windows 7 SP1 or Windows 8.1" << endl;
 			}
 		}
 	}

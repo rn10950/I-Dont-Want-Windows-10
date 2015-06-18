@@ -2,6 +2,8 @@
 //
 
 #include "stdafx.h"
+#include "io.h"
+#include "stdio.h"
 #include "windows.h"
 #include "I Don't Want Windows 10.h"
 #include "I Don't Want Windows 10Dlg.h"
@@ -16,6 +18,9 @@
 #define new DEBUG_NEW
 #endif
 
+// SET VARIABLES
+bool spawnGUI;
+bool advCMD;
 
 // c_idk_winX
 
@@ -73,6 +78,16 @@ BOOL c_idk_winX::InitInstance()
 		AfxMessageBox(IDP_OLE_INIT_FAILED);
 		return FALSE;
 	}
+	// add stdout support
+	AllocConsole();
+		{ 
+		// setup stdout
+		int fd = _open_osfhandle( (long)GetStdHandle( STD_OUTPUT_HANDLE ), 0);
+		FILE* fp = _fdopen( fd, "w" );
+	   
+		*stdout = *fp;
+		setvbuf( stdout, NULL, _IONBF, 0 );
+		}
 	// parse command line (cmdline.h)
 	CCustomCommandLineInfo oInfo;
 	ParseCommandLine(oInfo);
@@ -80,16 +95,32 @@ BOOL c_idk_winX::InitInstance()
 		  {
 			// Do something
 			OutputDebugString("No GUI Set. \n"); // output the fact that /nogui is used
+			spawnGUI = false;
+			advCMD = false;
 		  }
 		else if(oInfo.aModeCmd())
 		  {
 			// Do whatever
 			OutputDebugString("Advanced Mode set. \n"); // output the same for adv. mode
+			spawnGUI = false;
+			advCMD = true;
 		  }
+		else if(oInfo.Help())
+		  {
+			// Do whatever
+			OutputDebugString("Help Set. \n"); // output the same for adv. mode
+			showHelp();
+			spawnGUI = false;
+		  }
+		else
+			{
+			spawnGUI = true;
+			OutputDebugString("Opening GUI. \n");
+			}
 
 	// start executing dialog
-	//if(aModeCmd == false && NoGUI == false)
-		//{
+	if(spawnGUI == true)
+		{
 		c_idk_winX_dlg dlg;
 		m_pMainWnd = &dlg;
 		INT_PTR nResponse = dlg.DoModal();
@@ -104,7 +135,21 @@ BOOL c_idk_winX::InitInstance()
 			{
 				// cancel button (I don't agree), application should close so nothing really goes here
 			}
-		//}
+		}
+	else
+	{
+	// Dialog NOT opening, decipher CMD flags.
+	if(advCMD == false)
+		{
+		// regular console mode
+		OutputDebugString("Reguar NOGUI Mode. \n");
+		}
+	else if(advCMD == true)
+		{
+		// advanced mode console mode
+		OutputDebugString("Advanced Mode NOGUI Mode. \n");
+		}
+	}
 
 	// Since the dialog has been closed, return FALSE so that we exit the
 	//  application, rather than start the application's message pump.
