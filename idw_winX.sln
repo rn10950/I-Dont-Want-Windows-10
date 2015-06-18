@@ -5,16 +5,34 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "I Don't Want Windows 10", "
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Advanced Mode CMD Switch|Win32 = Advanced Mode CMD Switch|Win32
+		Advanced Mode CMD Switch|x64 = Advanced Mode CMD Switch|x64
+		Both Switches|Win32 = Both Switches|Win32
+		Both Switches|x64 = Both Switches|x64
 		Debug|Win32 = Debug|Win32
 		Debug|x64 = Debug|x64
+		No GUI CMD Switch|Win32 = No GUI CMD Switch|Win32
+		No GUI CMD Switch|x64 = No GUI CMD Switch|x64
 		Release|Win32 = Release|Win32
 		Release|x64 = Release|x64
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{2E00B3F4-F87E-4B10-B076-F3AEBD0D9514}.Advanced Mode CMD Switch|Win32.ActiveCfg = Advanced Mode CMD Switch|Win32
+		{2E00B3F4-F87E-4B10-B076-F3AEBD0D9514}.Advanced Mode CMD Switch|Win32.Build.0 = Advanced Mode CMD Switch|Win32
+		{2E00B3F4-F87E-4B10-B076-F3AEBD0D9514}.Advanced Mode CMD Switch|x64.ActiveCfg = Advanced Mode CMD Switch|x64
+		{2E00B3F4-F87E-4B10-B076-F3AEBD0D9514}.Advanced Mode CMD Switch|x64.Build.0 = Advanced Mode CMD Switch|x64
+		{2E00B3F4-F87E-4B10-B076-F3AEBD0D9514}.Both Switches|Win32.ActiveCfg = Both Switches|Win32
+		{2E00B3F4-F87E-4B10-B076-F3AEBD0D9514}.Both Switches|Win32.Build.0 = Both Switches|Win32
+		{2E00B3F4-F87E-4B10-B076-F3AEBD0D9514}.Both Switches|x64.ActiveCfg = Both Switches|x64
+		{2E00B3F4-F87E-4B10-B076-F3AEBD0D9514}.Both Switches|x64.Build.0 = Both Switches|x64
 		{2E00B3F4-F87E-4B10-B076-F3AEBD0D9514}.Debug|Win32.ActiveCfg = Debug|Win32
 		{2E00B3F4-F87E-4B10-B076-F3AEBD0D9514}.Debug|Win32.Build.0 = Debug|Win32
 		{2E00B3F4-F87E-4B10-B076-F3AEBD0D9514}.Debug|x64.ActiveCfg = Debug|x64
 		{2E00B3F4-F87E-4B10-B076-F3AEBD0D9514}.Debug|x64.Build.0 = Debug|x64
+		{2E00B3F4-F87E-4B10-B076-F3AEBD0D9514}.No GUI CMD Switch|Win32.ActiveCfg = No GUI CMD Switch|Win32
+		{2E00B3F4-F87E-4B10-B076-F3AEBD0D9514}.No GUI CMD Switch|Win32.Build.0 = No GUI CMD Switch|Win32
+		{2E00B3F4-F87E-4B10-B076-F3AEBD0D9514}.No GUI CMD Switch|x64.ActiveCfg = No GUI CMD Switch|x64
+		{2E00B3F4-F87E-4B10-B076-F3AEBD0D9514}.No GUI CMD Switch|x64.Build.0 = No GUI CMD Switch|x64
 		{2E00B3F4-F87E-4B10-B076-F3AEBD0D9514}.Release|Win32.ActiveCfg = Release|Win32
 		{2E00B3F4-F87E-4B10-B076-F3AEBD0D9514}.Release|Win32.Build.0 = Release|Win32
 		{2E00B3F4-F87E-4B10-B076-F3AEBD0D9514}.Release|x64.ActiveCfg = Release|x64

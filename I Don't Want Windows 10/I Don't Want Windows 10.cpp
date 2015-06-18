@@ -79,10 +79,12 @@ BOOL c_idk_winX::InitInstance()
 		if(oInfo.NoGUI())
 		  {
 			// Do something
+			OutputDebugString("No GUI Set. \n"); // output the fact that /nogui is used
 		  }
 		else if(oInfo.aModeCmd())
 		  {
 			// Do whatever
+			OutputDebugString("Advanced Mode set. \n"); // output the same for adv. mode
 		  }
 
 	// start executing dialog

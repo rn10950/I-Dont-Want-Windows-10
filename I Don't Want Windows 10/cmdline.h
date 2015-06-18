@@ -24,11 +24,11 @@ public:
    
   virtual void ParseParam(const char* pszParam, BOOL bFlag, BOOL bLast)
   {
-    if(0 == strcmp(pszParam, "/nogui"))
+    if(0 == strcmp(pszParam, "nogui"))
     {
       m_bNoGUI = TRUE;
     } 
-    else if(0 == strcmp(pszParam, "/adv"))
+    else if(0 == strcmp(pszParam, "adv"))
     {
       m_baMode = TRUE;
     }
