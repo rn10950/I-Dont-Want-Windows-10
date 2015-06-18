@@ -52,6 +52,7 @@ const WORD _wVerMinor = 0;
 
 BOOL c_idk_winX::InitInstance()
 {
+	OutputDebugString("Output can be written!\n"); // test Debug output
 	BOOL aModeCmd = false;
 	BOOL NoGUI = false;
 	// InitCommonControlsEx() is required on Windows XP if an application
@@ -73,7 +74,17 @@ BOOL c_idk_winX::InitInstance()
 		return FALSE;
 	}
 	// parse command line (cmdline.h)
-		
+	CCustomCommandLineInfo oInfo;
+	ParseCommandLine(oInfo);
+		if(oInfo.NoGUI())
+		  {
+			// Do something
+		  }
+		else if(oInfo.aModeCmd())
+		  {
+			// Do whatever
+		  }
+
 	// start executing dialog
 	//if(aModeCmd == false && NoGUI == false)
 		//{

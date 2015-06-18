@@ -1,35 +1,40 @@
-// NEW COMMAND-LINE INCLUDE
-#include "stdafx.h"
-#include "string.h"
-#include "string"
+// portions of this code (most of it) obtained from here:
+// http://forums.codeguru.com/showthread.php?386406-MFC-General-How-to-process-command-line-arguments-in-a-MFC-application
+// information on how to implement the class is also located there
 
-class CNewCommandLineInfo : public CCommandLineInfo
+class CCustomCommandLineInfo : public CCommandLineInfo
 {
 public:
-	CString m_sHostAddr;
-	UINT    m_nPort;
+  CCustomCommandLineInfo()
+  {
+    //m_bExport = m_bOpen = m_bWhatever = FALSE;
+    m_bNoGUI = m_baMode = FALSE;
+  }
 
-	void ParseParam(LPCTSTR lpszParam, BOOL bFlag, BOOL bLast);
+  // for convenience maintain 3 variables to indicate the param passed. 
+  BOOL m_bNoGUI;			//for /nogui (No GUI; Command-line)
+  BOOL m_baMode;		    //for /adv (Advanced Mode)
+ // BOOL m_bWhatever;       //for /whatever (3rd switch - for later date)
+ 
+  //public methods for checking these.
+public:
+  BOOL NoGUI() { return m_bNoGUI; };
+  BOOL aModeCmd() { return m_baMode; };
+  //BOOL IsWhatever() { return m_bWhatever; };
+   
+  virtual void ParseParam(const char* pszParam, BOOL bFlag, BOOL bLast)
+  {
+    if(0 == strcmp(pszParam, "/nogui"))
+    {
+      m_bNoGUI = TRUE;
+    } 
+    else if(0 == strcmp(pszParam, "/adv"))
+    {
+      m_baMode = TRUE;
+    }
+   // else if(0 == strcmp(pszParam, "/whatever"))
+    //{
+    //  m_bWhatever = TRUE;
+   // }
+  }
 };
-
-void CNewCommandLineInfo::ParseParam(LPCTSTR lpszParam, BOOL bFlag, BOOL bLast)
-{
-	if(bFlag) {
-		CString sParam(lpszParam);
-		if (sParam.Left(2) == "h:") {
-			m_sHostAddr = sParam.Right(sParam.GetLength() - 2);
-			return;
-		}
-
-		if (sParam.Left(2) == "p:") {
-			CString sTemp;
-
-			sTemp = sParam.Right(sParam.GetLength() - 2);
-			m_nPort = atoi(sTemp);
-			return;
-		}
-	}
-
-	// Call the base class to ensure proper command line processing
-	CCommandLineInfo::ParseParam(lpszParam, bFlag, bLast);
-}
