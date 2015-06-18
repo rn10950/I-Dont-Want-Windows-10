@@ -10,11 +10,25 @@ I created this in Visual Studio 2005. (yes, I know, it's all I had) To launch th
 ## How it Works
 In the main C++ file, the program makes sure it's not being run on any Windows other than Windows 7 and Windows 8.1, and makes sure that if it's being run under WoW64 to disable file system redirection. The program then executes a system() call to *wusa /uninstall /kb:3035583* to finally uninstall the GWX update.
 
+## Command-Line Flags
+
+You can now start I Don't Want Windows 10 from the Command Prompt! Here is how you would go about doing that. Be sure to read the issues section before you use this utility from the console.
+
+**Syntax:** `"I Dont Want Windows 10.exe" /nogui ~OR~ /adv`
+
+**Flags:**
+
+`/nogui` - Run the utility as you would normally, but without a GUI
+
+`/adv` - Run the utility in Advanced Mode (Experienced Users Only)
+
+**WARNING:** Only include *ONE* command-line flag at a time. `/adv` implies `/nogui`.
+
 ## Issues
-The main issue I've been having is that for the life of me I can't get a message box to spawn. The main scenario where we would want a message box to spawn would be  if the user is using an unsupported version of Windows. As a tempoary solution, I just echoed the message into a cmd window, but we should try to get this fixed as soon as possible.
+The MessageBox problem from before is now fixed, but now we have command-line problems. I can't get anything echoed out in a console, the flags still work though. You can also only specify one command-line flag at a time. This should be fixed in a v3.0.x bug-fix release or v4.0.
 
 ## The Future
 I am currently planning or working on the following features:
-* Ending the GWX process after update install
-* Taking ownership of %windir%\System32\GWX and deleting it's contents, while making it writable only to the current user (Advanced Mode)
-* Command-line Switches for automatic deployment.
+* Hiding the update after uninstall
+* Enhancing command-line support
+* Removing multiple bad updates at once.
