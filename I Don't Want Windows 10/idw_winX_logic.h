@@ -1,5 +1,7 @@
 #include "stdafx.h"
+#include "Wuapi.h"
 #include <iostream>
+#include <ATLComTime.h>
 using namespace std;
 
 // VARIABLE DECLARATIONS
