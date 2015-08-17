@@ -116,6 +116,22 @@ BEGIN
     LTEXT           "This application requires Windows 7 or Windows 8.1",IDC_STATIC,7,11,277,12
 END
 
+IDD_HIDEUPDATE DIALOGEX 0, 0, 330, 181
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Hide The Update"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    DEFPUSHBUTTON   "OK",IDOK,273,160,50,14
+    LTEXT           """I Don't Want Windows 10"" can't currently stop the update from coming back, but we can teach you how to hide the GWX update.",IDC_STATIC,7,5,316,18
+    GROUPBOX        "How To Hide The GWX Update (KB3035583)",IDC_STATIC,7,27,316,126
+    LTEXT           "1). Open the Windows Update Control Panel. (Start -> Control Panel -> Windows Update)",IDC_STATIC,19,44,292,10
+    LTEXT           "2). Click ""Check for updates"" in the left-hand side panel",IDC_STATIC,19,57,271,11
+    LTEXT           "3). When Windows is done checking for updates, it should display links in the center of the window. Click on the one that says ""# important updates are availiable"" (Where # is a number)",IDC_STATIC,19,70,284,26
+    LTEXT           "4). In the update list, look for the update that is called ""Update for Windows (7/8.1) for (x86/x64)-based Systems (KB3035583)"".",IDC_STATIC,19,99,295,27
+    LTEXT           "5). Uncheck this update",IDC_STATIC,20,119,298,21
+    LTEXT           "6). Right-click the update and select ""Hide update"" in this context menu.",IDC_STATIC,20,132,251,11
+END
+
 
 /////////////////////////////////////////////////////////////////////////////
 //
@@ -186,6 +202,14 @@ BEGIN
         RIGHTMARGIN, 284
         TOPMARGIN, 7
         BOTTOMMARGIN, 38
+    END
+
+    IDD_HIDEUPDATE, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 323
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 174
     END
 END
 #endif    // APSTUDIO_INVOKED

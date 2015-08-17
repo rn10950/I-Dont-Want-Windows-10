@@ -31,6 +31,8 @@ void mainCode(bool aMode, bool guiMC)
 		system("DEL /F /Q %windir%\\System32\\GWX\\* /S");
 		system("ATTRIB +R %windir%\\System32\\GWX\\* /S /D");
 		}
+	// hide update
+
 	}
 
 // WoW64 Detection:
@@ -115,5 +117,13 @@ void run(bool aMode, bool gui)
 			{
 			cout << "This applicatiion requires Windows 7 SP1 or Windows 8.1" << endl;
 			}
+		}
+	// run the "hide update" dialog
+	if(bIsSupported == true && gui == true) 
+		{
+		CDialog hideDlg(IDD_HIDEUPDATE);
+		// Create and show the dialog box
+		INT_PTR oRet = -1;
+		oRet = hideDlg.DoModal();
 		}
 	}
